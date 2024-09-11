@@ -10,9 +10,9 @@
     "dev": "NODE_ENV=\"development\" tsx --watch src/server.ts",
     "dev:docker": "NODE_ENV=\"development\" DB_HOST=\"thoth-database\" tsx --watch src/server.ts",
     "migration:create": "typeorm-ts-node-esm migration:create",
-    "migration:gen": "typeorm-ts-node-esm migration:generate -d src/dataSource.ts",
-    "migration:run": "typeorm-ts-node-esm migration:run -d src/dataSource.ts",
-    "migration:revert": "typeorm-ts-node-esm migration:revert -d src/dataSource.ts"
+    "migration:gen": "typeorm-ts-node-esm migration:generate -d src/config/dataSource.ts",
+    "migration:run": "typeorm-ts-node-esm migration:run -d src/config/dataSource.ts",
+    "migration:revert": "typeorm-ts-node-esm migration:revert -d src/config/dataSource.ts"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
