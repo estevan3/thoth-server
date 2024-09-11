@@ -1,0 +1,24 @@
+services:
+
+  thoth-db:
+    container_name: thoth-database
+    image: postgres:16
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
+      - POSTGRES_DB=${DB_NAME}
+    ports:
+      - 5432:5432
+    restart: always
+  
+  thoth-server:
+    container_name: thoth-server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - ./.env
+    ports:
+      - 3000:3000
+    depends_on:
+      - thoth-db
